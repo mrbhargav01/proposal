@@ -2,7 +2,6 @@
 
 A cute and playful website to pop the big question "Do you love me?" with interactive responses.
 
-![Preview](https://media.tenor.com/p_VEcmrBsLMAAAPo/manja.mp4) *(Replace with actual screenshot)*
 
 ## 🌟 Features
 - Romantic animated GIFs/videos for each response
