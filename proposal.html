@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> BT proposal </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier New", Courier, monospace;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #ffebee;
+      }
+      .container {
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 90%;
+      }
+      h1 {
+        margin: 20px 0;
+        color: #e91e63;
+      }
+      p {
+        margin-bottom: 20px;
+        color: #555;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .btn a {
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+      .btn a:first-child {
+        background-color: #4caf50;
+        color: white;
+      }
+      .btn a:last-child {
+        background-color: #f44336;
+        color: white;
+      }
+      .btn a:hover {
+        transform: scale(1.05);
+      }
+      .tenor-gif-embed {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Content will be loaded dynamically -->
+    </div>
+
+    <script>
+      // Router function
+      function router() {
+        const path = window.location.pathname;
+        const app = document.getElementById('app');
+        
+        switch(path) {
+          case '/':
+          case '/index.html':
+            app.innerHTML = `
+              <div class="container">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="22885016"
+                  data-share-method="host"
+                  data-aspect-ratio="1.04918"
+                  data-width="100%"
+                >
+                  <a href="https://tenor.com/view/manja-gif-22885016">Manja Sticker</a>from
+                  <a href="https://tenor.com/search/manja-stickers">Manja Stickers</a>
+                </div>
+                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
+                <h1>🤗Do you love me?❤️ </h1>
+                <p>❤️I am all yours babe🤗 </p>
+
+                <div class="btn">
+                  <a href='/yes'>Yes</a>
+                  <a href='/no1'>No</a>
+                </div>
+              </div>
+            `;
+            break;
+            
+          case '/no1':
+            app.innerHTML = `
+              <div class="container">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="22050818"
+                  data-share-method="host"
+                  data-aspect-ratio="1"
+                  data-width="100%"
+                >
+                  <a href="https://tenor.com/view/mochi-gif-22050818">Mochi Sticker</a>from
+                  <a href="https://tenor.com/search/mochi-stickers">Mochi Stickers</a>
+                </div>
+                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
+                <h1>Please yaar think again! 🙄</h1>
+                <p>itni jaldi nahi matt bolo😥</p>
+
+                <div class="btn">
+                  <a href='/yes'>Yes</a>
+                  <a href='/no2'>No</a>
+                </div>
+              </div>
+            `;
+            break;
+            
+          case '/no2':
+            app.innerHTML = `
+              <div class="container">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="15195810"
+                  data-share-method="host"
+                  data-aspect-ratio="1"
+                  data-width="100%"
+                >
+                  <a href="https://tenor.com/view/couple-forgive-me-asking-for-forgiveness-begging-crying-gif-15195810">
+                    Couple Forgive Me Sticker
+                  </a>from
+                  <a href="https://tenor.com/search/couple-stickers">Couple Stickers</a>
+                </div>
+                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
+
+                <h1>kya tum sach mai esa chahati ho 😣</h1>
+                <p>kyu aisa kar rahe ho 😣</p>
+
+                <div class="btn">
+                  <a href='/yes'>Yes</a>
+                  <a href='/no3'>No</a>
+                </div>
+              </div>
+            `;
+            break;
+            
+          case '/no3':
+            app.innerHTML = `
+              <div class="container">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="15974530976611222074"
+                  data-share-method="host"
+                  data-aspect-ratio="1.26923"
+                  data-width="100%"
+                >
+                  <a href="https://tenor.com/view/peach-goma-phone-gif-15974530976611222074">
+                    Peach Goma Phone Sticker
+                  </a>from
+                  <a href="https://tenor.com/search/peach+goma-stickers">Peach Goma Stickers</a>
+                </div>
+                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
+
+                <h1>Baby Man jao na! Kitna bhav khaogi 😭</h1>
+                <p>😭tadpaaoge tadpaa lo ham tadap tadap kar bhi tumhaare geet gaayenge
+                        thukraaoge thukraa lo ham thokar khaa kar bhi
+                        tumhaare dar pe aayenge
+                        tadpaaoge tadpaa lo😭</p>
+
+                <div class="btn">
+                  <a href='/yes'>Yes</a>
+                  <a href="#" id="move-random">No</a>
+                </div>
+              </div>
+            `;
+            
+            // Add the moving "No" button functionality
+            document.getElementById('move-random').addEventListener('mouseover', function() {
+              const btn = this;
+              const container = btn.closest('.container');
+              const containerRect = container.getBoundingClientRect();
+              
+              const maxX = containerRect.width - btn.offsetWidth;
+              const maxY = containerRect.height - btn.offsetHeight;
+              
+              const randomX = Math.floor(Math.random() * maxX);
+              const randomY = Math.floor(Math.random() * maxY);
+              
+              btn.style.position = 'absolute';
+              btn.style.left = randomX + 'px';
+              btn.style.top = randomY + 'px';
+            });
+            break;
+            
+          case '/yes':
+            app.innerHTML = `
+              <div class="container">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="15551135196567206192"
+                  data-share-method="host"
+                  data-aspect-ratio="1.26923"
+                  data-width="100%"
+                >
+                  <a href="https://tenor.com/view/kiss-love-heart-gif-15551135196567206192">
+                    Kiss Love Heart Sticker
+                  </a>from
+                  <a href="https://tenor.com/search/kiss-stickers">Kiss Stickers</a>
+                </div>
+                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
+
+                <h1>Yay!🤍 I love you too! 😍🤍</h1>
+                <p>You've made me the happiest person! 😘🥰</p>
+
+                <div class="btn">
+                  <a href='/'>Start Over</a>
+                </div>
+              </div>
+            `;
+            break;
+            
+          default:
+            // Redirect to home if path not found
+            window.history.pushState({}, '', '/');
+            router();
+        }
+        
+        // Load Tenor embed script if not already loaded
+        if (!document.querySelector('script[src="https://tenor.com/embed.js"]')) {
+          const tenorScript = document.createElement('script');
+          tenorScript.src = 'https://tenor.com/embed.js';
+          tenorScript.async = true;
+          document.body.appendChild(tenorScript);
+        }
+      }
+      
+      // Handle navigation
+      window.addEventListener('popstate', router);
+      
+      // Initial load
+      document.addEventListener('DOMContentLoaded', () => {
+        // Handle link clicks without page reload
+        document.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A' && e.target.href) {
+            e.preventDefault();
+            const path = new URL(e.target.href).pathname;
+            window.history.pushState({}, '', path);
+            router();
+          }
+        });
+        
+        router();
+      });
+    </script>
+  </body>
+</html>
