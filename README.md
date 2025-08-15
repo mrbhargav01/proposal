@@ -23,7 +23,7 @@ A cute and playful website to pop the big question "Do you love me?" with intera
 
 ## 🚀 How to Use
 1. **Access the live site**:  
-   [https://mrbhargav01.github.io/proposal/](https://mrbhargav01.github.io/proposal/)
+   [https://mrbhargav01.github.io/proposal/](https://mrbhargav01.github.io/proposal/proposal.html)
 
 2. **Navigation**:
    - Click **Yes** for happy ending ❤️
