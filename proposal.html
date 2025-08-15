@@ -1,268 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> BT proposal </title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT Proposal</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Courier New", Courier, monospace;
-      }
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #ffebee;
-      }
-      .container {
-        text-align: center;
-        padding: 20px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-width: 500px;
-        width: 90%;
-      }
-      h1 {
-        margin: 20px 0;
-        color: #e91e63;
-      }
-      p {
-        margin-bottom: 20px;
-        color: #555;
-      }
-      .btn {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 20px;
-      }
-      .btn a {
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: all 0.3s;
-      }
-      .btn a:first-child {
-        background-color: #4caf50;
-        color: white;
-      }
-      .btn a:last-child {
-        background-color: #f44336;
-        color: white;
-      }
-      .btn a:hover {
-        transform: scale(1.05);
-      }
-      .tenor-gif-embed {
-        max-width: 300px;
-        margin: 0 auto;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+        .container {
+            text-align: center;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            margin: 20px;
+            position: relative;
+        }
+        h1 {
+            margin: 20px 0;
+            color: #e91e63;
+            font-size: 24px;
+        }
+        p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .video-container {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .btn a {
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 16px;
+            min-width: 100px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        #move-random {
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .btn a {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div id="app">
-      <!-- Content will be loaded dynamically -->
+        <!-- Content loaded dynamically -->
     </div>
 
+    <audio autoplay loop id="bgMusic">
+        <source src="https://www.zedge.net/ringtones/13b3d01c-df7d-4fb9-a6f8-a71e470c246c" type="audio/mpeg">
+    </audio>
+
     <script>
-      // Router function
-      function router() {
-        const path = window.location.pathname;
-        const app = document.getElementById('app');
-        
-        switch(path) {
-          case '/':
-          case '/index.html':
-            app.innerHTML = `
-              <div class="container">
-                <div
-                  class="tenor-gif-embed"
-                  data-postid="22885016"
-                  data-share-method="host"
-                  data-aspect-ratio="1.04918"
-                  data-width="100%"
-                >
-                  <a href="https://tenor.com/view/manja-gif-22885016">Manja Sticker</a>from
-                  <a href="https://tenor.com/search/manja-stickers">Manja Stickers</a>
-                </div>
-                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
-                <h1>🤗Do you love me?❤️ </h1>
-                <p>❤️I am all yours babe🤗 </p>
+        // Video URLs
+        const videos = {
+            home: "https://media.tenor.com/p_VEcmrBsLMAAAPo/manja.mp4",
+            yes: "https://media.tenor.com/A4Lvk69JMJkAAAPo/mochi-cat.mp4",
+            no1: "https://media.tenor.com/dltr8Wx24g8AAAPo/mochi.mp4",
+            no2: "https://media.tenor.com/tzvzrz4famQAAAPo/couple-forgive-me.mp4",
+            no3: "https://media.tenor.com/3bDvSVpiwjoAAAPo/peach-goma-phone.mp4"
+        };
 
-                <div class="btn">
-                  <a href='/yes'>Yes</a>
-                  <a href='/no1'>No</a>
-                </div>
-              </div>
-            `;
-            break;
-            
-          case '/no1':
-            app.innerHTML = `
-              <div class="container">
-                <div
-                  class="tenor-gif-embed"
-                  data-postid="22050818"
-                  data-share-method="host"
-                  data-aspect-ratio="1"
-                  data-width="100%"
-                >
-                  <a href="https://tenor.com/view/mochi-gif-22050818">Mochi Sticker</a>from
-                  <a href="https://tenor.com/search/mochi-stickers">Mochi Stickers</a>
-                </div>
-                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
-                <h1>Please yaar think again! 🙄</h1>
-                <p>itni jaldi nahi matt bolo😥</p>
+        // Pages content
+        const pages = {
+            home: {
+                video: videos.home,
+                title: "🤗 Do you love me? ❤️",
+                text: "❤️ I am all yours babe 🤗",
+                buttons: [
+                    { text: "Yes", link: "#yes", class: "yes-btn" },
+                    { text: "No", link: "#no1", class: "no-btn" }
+                ]
+            },
+            no1: {
+                video: videos.no1,
+                title: "Please yaar think again! 🙄",
+                text: "itni jaldi nahi matt bolo 😥",
+                buttons: [
+                    { text: "Yes", link: "#yes", class: "yes-btn" },
+                    { text: "No", link: "#no2", class: "no-btn" }
+                ]
+            },
+            no2: {
+                video: videos.no2,
+                title: "Kya tum sach mai esa chahati ho 😣",
+                text: "kyu aisa kar rahe ho 😣",
+                buttons: [
+                    { text: "Yes", link: "#yes", class: "yes-btn" },
+                    { text: "No", link: "#no3", class: "no-btn" }
+                ]
+            },
+            no3: {
+                video: videos.no3,
+                title: "Baby Man jao na! Kitna bhav khaogi 😭",
+                text: "😭tadpaaoge tadpaa lo ham tadap tadap kar bhi tumhaare geet gaayenge thukraaoge thukraa lo ham thokar khaa kar bhi tumhaare dar pe aayenge tadpaaoge tadpaa lo😭",
+                buttons: [
+                    { text: "Yes", link: "#yes", class: "yes-btn" },
+                    { text: "No", link: "#", class: "no-btn", id: "move-random" }
+                ]
+            },
+            yes: {
+                video: videos.yes,
+                title: "🤍 I love you too! 😍🤍",
+                text: "You've made me the happiest person! 😘🥰",
+                buttons: [
+                    { text: "Start Over", link: "#home", class: "yes-btn" }
+                ]
+            }
+        };
 
-                <div class="btn">
-                  <a href='/yes'>Yes</a>
-                  <a href='/no2'>No</a>
-                </div>
-              </div>
-            `;
-            break;
-            
-          case '/no2':
-            app.innerHTML = `
-              <div class="container">
-                <div
-                  class="tenor-gif-embed"
-                  data-postid="15195810"
-                  data-share-method="host"
-                  data-aspect-ratio="1"
-                  data-width="100%"
-                >
-                  <a href="https://tenor.com/view/couple-forgive-me-asking-for-forgiveness-begging-crying-gif-15195810">
-                    Couple Forgive Me Sticker
-                  </a>from
-                  <a href="https://tenor.com/search/couple-stickers">Couple Stickers</a>
-                </div>
-                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
+        // Router function
+        function router() {
+            const path = window.location.hash.substring(1) || 'home';
+            const app = document.getElementById('app');
+            const page = pages[path] || pages.home;
 
-                <h1>kya tum sach mai esa chahati ho 😣</h1>
-                <p>kyu aisa kar rahe ho 😣</p>
-
-                <div class="btn">
-                  <a href='/yes'>Yes</a>
-                  <a href='/no3'>No</a>
-                </div>
-              </div>
-            `;
-            break;
-            
-          case '/no3':
-            app.innerHTML = `
-              <div class="container">
-                <div
-                  class="tenor-gif-embed"
-                  data-postid="15974530976611222074"
-                  data-share-method="host"
-                  data-aspect-ratio="1.26923"
-                  data-width="100%"
-                >
-                  <a href="https://tenor.com/view/peach-goma-phone-gif-15974530976611222074">
-                    Peach Goma Phone Sticker
-                  </a>from
-                  <a href="https://tenor.com/search/peach+goma-stickers">Peach Goma Stickers</a>
-                </div>
-                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
-
-                <h1>Baby Man jao na! Kitna bhav khaogi 😭</h1>
-                <p>😭tadpaaoge tadpaa lo ham tadap tadap kar bhi tumhaare geet gaayenge
-                        thukraaoge thukraa lo ham thokar khaa kar bhi
-                        tumhaare dar pe aayenge
-                        tadpaaoge tadpaa lo😭</p>
-
-                <div class="btn">
-                  <a href='/yes'>Yes</a>
-                  <a href="#" id="move-random">No</a>
-                </div>
-              </div>
-            `;
-            
-            // Add the moving "No" button functionality
-            document.getElementById('move-random').addEventListener('mouseover', function() {
-              const btn = this;
-              const container = btn.closest('.container');
-              const containerRect = container.getBoundingClientRect();
-              
-              const maxX = containerRect.width - btn.offsetWidth;
-              const maxY = containerRect.height - btn.offsetHeight;
-              
-              const randomX = Math.floor(Math.random() * maxX);
-              const randomY = Math.floor(Math.random() * maxY);
-              
-              btn.style.position = 'absolute';
-              btn.style.left = randomX + 'px';
-              btn.style.top = randomY + 'px';
+            let buttonsHTML = '';
+            page.buttons.forEach(btn => {
+                buttonsHTML += `<a href="${btn.link}" class="${btn.class}" ${btn.id ? `id="${btn.id}"` : ''}>${btn.text}</a>`;
             });
-            break;
-            
-          case '/yes':
+
             app.innerHTML = `
-              <div class="container">
-                <div
-                  class="tenor-gif-embed"
-                  data-postid="15551135196567206192"
-                  data-share-method="host"
-                  data-aspect-ratio="1.26923"
-                  data-width="100%"
-                >
-                  <a href="https://tenor.com/view/kiss-love-heart-gif-15551135196567206192">
-                    Kiss Love Heart Sticker
-                  </a>from
-                  <a href="https://tenor.com/search/kiss-stickers">Kiss Stickers</a>
+                <div class="container">
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline>
+                            <source src="${page.video}" type="video/mp4">
+                        </video>
+                    </div>
+                    <h1>${page.title}</h1>
+                    <p>${page.text}</p>
+                    <div class="btn">${buttonsHTML}</div>
                 </div>
-                <script type="text/javascript" async src="https://tenor.com/embed.js"><\/script>
-
-                <h1>Yay!🤍 I love you too! 😍🤍</h1>
-                <p>You've made me the happiest person! 😘🥰</p>
-
-                <div class="btn">
-                  <a href='/'>Start Over</a>
-                </div>
-              </div>
             `;
-            break;
+
+            // Add moving button functionality if on no3 page
+            if (path === 'no3') {
+                const moveBtn = document.getElementById('move-random');
+                const container = moveBtn.closest('.container');
+                
+                // Make container position relative if not already
+                container.style.position = 'relative';
+                
+                // Set initial position
+                moveBtn.style.position = 'static';
+                
+                const moveButton = function() {
+                    const containerRect = container.getBoundingClientRect();
+                    const btnRect = moveBtn.getBoundingClientRect();
+                    
+                    const maxX = containerRect.width - btnRect.width;
+                    const maxY = containerRect.height - btnRect.height;
+                    
+                    const randomX = Math.floor(Math.random() * maxX);
+                    const randomY = Math.floor(Math.random() * maxY);
+                    
+                    moveBtn.style.position = 'absolute';
+                    moveBtn.style.left = randomX + 'px';
+                    moveBtn.style.top = randomY + 'px';
+                };
+                
+                // Move on hover (desktop) and touch (mobile)
+                moveBtn.addEventListener('mouseover', moveButton);
+                moveBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    moveButton();
+                });
+                
+                // Prevent default anchor behavior
+                moveBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                });
+            }
+
+            // Try to play music (mobile requires user interaction first)
+            const bgMusic = document.getElementById('bgMusic');
+            function tryPlayMusic() {
+                bgMusic.play().catch(e => console.log("Audio play failed:", e));
+                document.body.removeEventListener('click', tryPlayMusic);
+                document.body.removeEventListener('touchstart', tryPlayMusic);
+            }
             
-          default:
-            // Redirect to home if path not found
-            window.history.pushState({}, '', '/');
-            router();
+            document.body.addEventListener('click', tryPlayMusic, { once: true });
+            document.body.addEventListener('touchstart', tryPlayMusic, { once: true });
         }
         
-        // Load Tenor embed script if not already loaded
-        if (!document.querySelector('script[src="https://tenor.com/embed.js"]')) {
-          const tenorScript = document.createElement('script');
-          tenorScript.src = 'https://tenor.com/embed.js';
-          tenorScript.async = true;
-          document.body.appendChild(tenorScript);
-        }
-      }
-      
-      // Handle navigation
-      window.addEventListener('popstate', router);
-      
-      // Initial load
-      document.addEventListener('DOMContentLoaded', () => {
-        // Handle link clicks without page reload
-        document.addEventListener('click', (e) => {
-          if (e.target.tagName === 'A' && e.target.href) {
-            e.preventDefault();
-            const path = new URL(e.target.href).pathname;
-            window.history.pushState({}, '', path);
+        // Handle navigation
+        window.addEventListener('hashchange', router);
+        
+        // Initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle link clicks without page reload
+            document.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A' && e.target.href) {
+                    const hash = new URL(e.target.href).hash;
+                    if (hash) {
+                        e.preventDefault();
+                        window.location.hash = hash;
+                    }
+                }
+            });
+            
+            if (!window.location.hash) window.location.hash = '#home';
             router();
-          }
         });
-        
-        router();
-      });
     </script>
-  </body>
+</body>
 </html>
