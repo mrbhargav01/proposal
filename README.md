@@ -2,7 +2,10 @@
 
 A cute and playful website to pop the big question "Do you love me?" with interactive responses.
 
-
+![image alt ]()
+![image alt ]()
+![image alt ]()
+![image alt ]()
 ## 🌟 Features
 - Romantic animated GIFs/videos for each response
 - Interactive "Yes/No" buttons with progressive responses
